@@ -333,52 +333,59 @@ a:focus,button:focus{outline:2px solid rgba(59,130,246,0.22);outline-offset:2px}
 
 .hidden{display:none!important}
 
-/* mobile */
-@media (max-width:700px) {
-  .slideshow-container {
-    display: block !important;
-    max-width: 100% !important;
-    height: auto !important;
-    padding: 8px 0 !important;
-    border-radius: 10px;
+/* Mobile */
+@media (max-width: 800px) {
+  .slideshow-container { display: none !important; }
+}
+/* Header stacked layout on small screens */
+@media (max-width:800px){
+  .site-header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    padding:10px 12px;
   }
 
-  .slideshow-container .slide,
-  .slideshow-container .swiper-slide,
-  .slideshow-container .slick-slide,
-  .slideshow-container .glide__slide,
-  .slideshow-container .carousel-item {
-    position: relative !important;
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    margin: 8px 0 !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    inset: auto !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
+  .site-header .logo{
+    display:block;
+    width:140px;
+    height:auto;
+    margin:0;
   }
 
-  .slideshow-container .slide img,
-  .slideshow-container img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block !important;
-    border-radius: 8px !important;
+  .site-header .search-wrap{
+    width:100%;
+    max-width:520px;
+    box-sizing:border-box;
+  }
+  .site-header .search-wrap input[type="search"]{ width:100%; }
+
+  .site-header .header-actions{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+  }
+  .site-header .header-actions .icons{
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+  .site-header .header-actions .auth-buttons{
+    display:flex;
+    gap:8px;
   }
 
-  .slideshow-container .prev,
-  .slideshow-container .next {
-    display: none !important;
+  .site-header .icon{
+    width:36px;
+    height:36px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
   }
 
-  .slideshow-container .slide a,
-  .slideshow-container .slide button {
-    display: block;
-    padding: 12px;
-    font-size: 15px;
-  }
+  .site-header .desktop-nav{ display:none !important; }
+  .site-header.sticky{ position:sticky; top:0; z-index:9999; }
 }
