@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giỏ Hàng - PhoneShop</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <!-- Dùng chung CSS của trang chủ -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <div class="brand logo">
+        <a href="index.html" class="logo-link">
+          <img src="images/logo.png" alt="PhoneShop Logo" class="logo-img" loading="lazy">
+        </a>
+        <div class="brand-text">
+          <small class="brand-sub">Điện thoại chính hãng - Giá tốt</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <form id="searchForm" onsubmit="return handleSearch && handleSearch(event)">
+        <input type="text" id="searchInput" class="search-box" placeholder="Tìm kiếm điện thoại, hãng, cấu hình..." />
+      </form>
+    </div>
+
+    <div class="auth-container">
+      <a href="giohang.html" class="cart-link" title="Giỏ hàng" aria-label="Giỏ hàng">
+        <button id="cartBtn" class="cart-btn" type="button" aria-haspopup="false" aria-expanded="false">
+          <img src="images/giohang.png" alt="Giỏ hàng" class="cart-icon" loading="lazy">
+          <span id="headerCartCount" class="cart-count" aria-live="polite">0</span>
+        </button>
+      </a>
+
+      <a href="thongbao.html" title="Thông báo" aria-label="Thông báo">
+        <img src="images/thongbao.png" alt="Thông báo" class="notification-icon" loading="lazy">
+      </a>
+
+      <a id="loginLink" href="login.html"><button class="auth-btn">Đăng nhập</button></a>
+      <a id="registerLink" href="register.html"><button class="auth-btn">Đăng ký</button></a>
+
+      <div id="userAvatar" class="avatar-container" aria-hidden="true" style="display:none;">
+        <img src="images/avatar.png" alt="User Avatar" class="avatar-img" loading="lazy">
+        <div class="logout-menu"><a href="#" id="logoutBtn">Đăng xuất</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content" role="main">
+    <div id="cart-header" style="width:100%;max-width:1200px;margin:0 auto;padding:12px 6px;">
+      <h1>Giỏ Hàng</h1>
+      <p class="muted" style="margin:6px 0 0 0;">Các sản phẩm bạn đã thêm vào giỏ — kiểm tra số lượng, chỉnh sửa và tiến hành thanh toán.</p>
+    </div>
+
+    <!-- Nơi render danh sách sản phẩm trong giỏ (được quản lý bởi js/giohang.js) -->
+    <div id="cart-items" class="cart-items" style="width:100%;max-width:1200px;margin:8px auto;padding:6px;"></div>
+
+    <!-- Tổng và nút thanh toán -->
+    <div id="checkout-container" class="checkout-container" style="width:100%;max-width:1200px;margin:8px auto;padding:6px;">
+      <div class="cart-summary" style="display:flex;justify-content:flex-end;align-items:center;gap:12px;">
+        <div style="font-size:16px;">Tổng: <strong id="cart-total">0 VND</strong></div>
+        <button id="checkout-btn" class="checkout-btn">Thanh toán</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Hỗ trợ khách hàng</h3>
+        <ul>
+          <li><a href="gioithieu.html">Giới thiệu</a></li>
+          <li><a href="lienhe.html">Liên hệ</a></li>
+          <li><a href="ban-si.html">Chính sách bán sỉ</a></li>
+          <li><a href="tu-van.html">Tư vấn mua hàng</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Chính sách bán hàng</h3>
+        <ul>
+          <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+          <li><a href="chinh-sach-van-chuyen.html">Chính sách vận chuyển</a></li>
+          <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
+          <li><a href="phuong-thuc-thanh-toan.html">Phương thức thanh toán</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>PhoneShop</h3>
+        <p>Địa chỉ: 624 Âu Cơ, Phường Bảy Hiền, TP Hồ Chí Minh</p>
+        <p>Điện thoại: 096.306.000 – 036.343.500</p>
+        <p>Email: <a href="mailto:info@phoneshop.vn">info@phoneshop.vn</a></p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="20" height="20" loading="lazy"></a>
+          <a href="#" aria-label="Instagram"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" width="20" height="20" loading="lazy"></a>
+          <a href="https://wa.me/8496306000" aria-label="WhatsApp"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20" height="20" loading="lazy"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 PhoneShop. Tất cả quyền được bảo lưu.</p>
+      <p><a href="terms.html">Điều khoản sử dụng</a> | <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></p>
+    </div>
+  </footer>
+
+  <!-- Scripts: giữ các script chung của site nếu có, và file js/giohang.js để render giỏ -->
+  <script src="js/script.js"></script>
+  <script src="js/giohang.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

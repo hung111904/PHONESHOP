@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chi tiết - Samsung Galaxy Z Fold7 256GB</title>
+<style>
+  :root{--accent:#0ea5e9;--bg:#f8fafc;--card:#fff}
+  body{font-family:Inter,system-ui,Arial;margin:18px;background:var(--bg);color:#0b1220}
+  .container{max-width:1100px;margin:0 auto}
+  .top{display:flex;gap:18px;align-items:flex-start}
+  .left{flex:0 0 420px}
+  .left img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 30px rgba(16,24,40,0.06)}
+  .right{flex:1;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(16,24,40,0.06)}
+  h1{margin:0 0 6px;font-size:22px}
+  .subtitle{color:#6b7280;margin:0 0 12px}
+  .price{color:#ef4444;font-weight:800;font-size:20px;margin:6px 0}
+  .btn-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .specs{margin-top:16px}
+  .specs table{width:100%;border-collapse:collapse}
+  .specs th{width:160px;text-align:left;padding:10px;color:#374151;vertical-align:top}
+  .specs td{padding:10px;color:#0b1220}
+  .note{margin-top:12px;color:#6b7280;font-size:13px}
+  .back{display:inline-block;margin-top:18px;color:#0b1220;text-decoration:none}
+  @media(max-width:900px){ .top{flex-direction:column} .left{width:100%} }
+</style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html" id="backLink">← Trở về trang chủ</a>
+    <div style="height:12px"></div>
+
+    <div class="top">
+      <div class="left">
+        <img id="mainImg" src="images/samsungzfold7.png" alt="Samsung Galaxy Z Fold7 256GB" loading="lazy">
+      </div>
+
+      <div class="right">
+        <h1>Samsung Galaxy Z Fold7 256GB</h1>
+        <p class="subtitle">Màn hình gập lớn • Snapdragon/Exynos cao cấp • Camera mạnh • 5G</p>
+        <div class="price">Giá tham khảo: <span style="font-size:18px">41.990.000 VND VND</span></div>
+
+        <div class="specs" aria-label="Thông số kỹ thuật">
+          <h3 style="margin-top:14px;margin-bottom:8px">Thông số kỹ thuật</h3>
+          <table>
+            <tbody>
+              <tr><th>Màn hình</th><td>8.0" Foldable Dynamic AMOLED 2X (main) 2184×1968; Cover 6.5" 2520×1080; 120Hz; HDR10+; peak ~2600 nits.</td></tr>
+              <tr><th>Chip</th><td>Qualcomm Snapdragon 8 Elite (SM8750‑AC) / tùy thị trường.</td></tr>
+              <tr><th>Bộ nhớ / RAM</th><td>256/512/1TB; 12 GB RAM (phiên bản phổ biến).</td></tr>
+              <tr><th>Camera chính</th><td>200 MP (wide, OIS) + 10 MP (tele, 3x OIS) + 12 MP (ultrawide); quay 8K.</td></tr>
+              <tr><th>Camera selfie</th><td>10 MP (inner) + 10 MP (cover).</td></tr>
+              <tr><th>Pin & sạc</th><td>4400 mAh; sạc có dây ~25W; sạc không dây 15W.</td></tr>
+              <tr><th>Kích thước</th><td>Unfolded: 158.4 × 143.2 × 4.2 mm; Folded: 158.4 × 72.8 × 8.9 mm.</td></tr>
+              <tr><th>Trọng lượng</th><td>215 g.</td></tr>
+              <tr><th>Hệ điều hành</th><td>Android 16, One UI.</td></tr>
+              <tr><th>Kết nối</th><td>5G, Wi‑Fi 7/6E, Bluetooth 5.4, NFC, USB‑C, UWB.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="note">Mô tả ngắn: Thiết bị gập cao cấp cho đa nhiệm và trải nghiệm tablet khi mở.</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function(){
+  function safeNavigate(url){ try{ window.location.href = url; }catch(e){ console.error(e); } }
+  var backLink=document.getElementById('backLink');
+  if(backLink) backLink.addEventListener('click', function(e){ var href=this.getAttribute('href'); if(!href||href==='#'){ e.preventDefault(); window.history.back(); } else setTimeout(()=>safeNavigate(href),50); });
+  var mainImg=document.getElementById('mainImg'); if(mainImg) mainImg.addEventListener('error', function(){ this.src='https://via.placeholder.com/720x480?text=No+image'; });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chi tiết - iPhone 15 Plus 256GB</title>
+<style>
+  :root{--accent:#0ea5e9;--bg:#f8fafc;--card:#fff}
+  body{font-family:Inter,system-ui,Arial;margin:18px;background:var(--bg);color:#0b1220}
+  .container{max-width:1100px;margin:0 auto}
+  .top{display:flex;gap:18px;align-items:flex-start}
+  .left{flex:0 0 420px}
+  .left img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 30px rgba(16,24,40,0.06)}
+  .right{flex:1;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(16,24,40,0.06)}
+  h1{margin:0 0 6px;font-size:22px}
+  .subtitle{color:#6b7280;margin:0 0 12px}
+  .price{color:#ef4444;font-weight:800;font-size:20px;margin:6px 0}
+  .btn-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .specs{margin-top:16px}
+  .specs table{width:100%;border-collapse:collapse}
+  .specs th{width:160px;text-align:left;padding:10px;color:#374151;vertical-align:top}
+  .specs td{padding:10px;color:#0b1220}
+  .note{margin-top:12px;color:#6b7280;font-size:13px}
+  .back{display:inline-block;margin-top:18px;color:#0b1220;text-decoration:none}
+  .sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  @media(max-width:900px){ .top{flex-direction:column} .left{width:100%} }
+</style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html" id="backLink">← Trở về trang chủ</a>
+    <div style="height:12px"></div>
+
+    <div class="top">
+      <div class="left">
+        <img id="mainImg" src="images/iphone15plus.png" alt="iPhone 15 Plus 256GB - mặt trước">
+      </div>
+
+      <div class="right">
+        <h1>iPhone 15 Plus 256GB</h1>
+        <p class="subtitle">6.7" Super Retina XDR • A16 Bionic • 48 MP • iOS 17</p>
+        <div class="price">Giá tham khảo: <span style="font-size:18px">21.290.000 VND</span></div>
+
+        <div class="btn-row">
+          <!-- Nút "Mua ngay" và mọi liên quan tới cart.html đã bị loại bỏ theo yêu cầu -->
+        </div>
+
+        <div class="specs" aria-label="Thông số kỹ thuật">
+          <h3 style="margin-top:14px;margin-bottom:8px">Thông số kỹ thuật</h3>
+          <table>
+            <tbody>
+              <tr><th>Màn hình</th><td>6.7" Super Retina XDR OLED; 2796 × 1290; ~460 ppi; HDR10; Dolby Vision; True Tone; độ sáng tối đa 2000 nits (HDR).</td></tr>
+              <tr><th>Chip</th><td>Apple A16 Bionic (6‑core CPU, 5‑core GPU, 16‑core Neural Engine).</td></tr>
+              <tr><th>Bộ nhớ / RAM</th><td>256 GB lưu trữ; RAM ~6 GB.</td></tr>
+              <tr><th>Camera chính</th><td>48 MP (wide, ƒ/1.6, sensor‑shift OIS) + 12 MP Ultra Wide (ƒ/2.4); Photonic Engine, ProRAW, Night mode, Action mode.</td></tr>
+              <tr><th>Camera selfie</th><td>12 MP, ƒ/1.9; Face ID; Cinematic mode.</td></tr>
+              <tr><th>Pin & sạc</th><td>Khoảng 4383 mAh; hỗ trợ sạc nhanh PD có dây; MagSafe 15W; Qi2.</td></tr>
+              <tr><th>Kích thước</th><td>160.9 × 77.8 × 7.8 mm.</td></tr>
+              <tr><th>Trọng lượng</th><td>201 g.</td></tr>
+              <tr><th>Hệ điều hành</th><td>iOS 17 (có thể nâng cấp).</td></tr>
+              <tr><th>Kết nối</th><td>5G, LTE, Wi‑Fi 6, Bluetooth 5.3, NFC, USB‑C.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="note">Mô tả ngắn: iPhone 15 Plus mang đến màn hình lớn 6.7", hiệu năng A16 Bionic, camera 48MP và thời lượng pin cải thiện so với thế hệ trước.</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function(){
+  function safeNavigate(url){
+    try { window.location.href = url; } catch (e) { console.error('Navigation failed', e); }
+  }
+  var backLink = document.getElementById('backLink');
+  if (backLink) backLink.addEventListener('click', function(e){ var href=this.getAttribute('href'); if(!href||href==='#'){ e.preventDefault(); window.history.back(); } else setTimeout(()=>safeNavigate(href),50); });
+  var mainImg=document.getElementById('mainImg'); if(mainImg) mainImg.addEventListener('error', function(){ this.src='https://via.placeholder.com/720x480?text=No+image'; });
+})();
+</script>
+</body>
+</html>

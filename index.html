@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phone Shop</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+ <header class="site-header">
+  <div class="header-left">
+    <div class="brand logo">
+      <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="PhoneShop Logo" class="logo-img" loading="lazy">
+      </a>
+      <div class="brand-text">
+        <small class="brand-sub">Điện thoại chính hãng - Giá tốt</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <form id="searchForm" onsubmit="return handleSearch(event)">
+      <input type="text" id="searchInput" class="search-box" placeholder="Tìm kiếm điện thoại, hãng, cấu hình..." />
+    </form>
+  </div>
+
+  <div class="auth-container">
+    <!-- Cart: bấm sẽ chuyển sang giohang.html và hiển thị số lượng -->
+    <a href="giohang.html" class="cart-link" title="Giỏ hàng" aria-label="Giỏ hàng">
+      <button id="cartBtn" class="cart-btn" type="button">
+        <img src="images/giohang.png" alt="Giỏ hàng" class="cart-icon" loading="lazy">
+        <span id="headerCartCount" class="cart-count">0</span>
+      </button>
+    </a>
+
+    <a href="thongbao.html" title="Thông báo">
+      <img src="images/thongbao.png" alt="Thông báo" class="notification-icon" loading="lazy">
+    </a>
+
+    <a id="loginLink" href="login.html"><button class="auth-btn">Đăng nhập</button></a>
+    <a id="registerLink" href="register.html"><button class="auth-btn">Đăng ký</button></a>
+
+    <div id="userAvatar" class="avatar-container" aria-hidden="true" style="display:none;">
+      <img src="images/avatar.png" alt="User Avatar" class="avatar-img" loading="lazy">
+      <div class="logout-menu"><a href="#" id="logoutBtn">Đăng xuất</a></div>
+    </div>
+  </div>
+</header>
+
+  <main class="main-content">
+    <div class="slideshow-container" aria-roledescription="carousel">
+      <div class="slide fade"><a href="chitiet_apple1.html"><img src="images/iphone15plus.png" alt="Slide 1" loading="lazy"></a></div>
+      <div class="slide fade"><a href="chitiet_samsung2.html"><img src="images/samsungzfold7.png" alt="Slide 2" loading="lazy"></a></div>
+      <div class="slide fade"><a href="chitiet_xiaomi1.html"><img src="images/xiaomi17ultra.png" alt="Slide 3" loading="lazy"></a></div>
+      <button class="prev" aria-label="Previous">&#10094;</button>
+      <button class="next" aria-label="Next">&#10095;</button>
+    </div>
+<section class="phone-section">
+  <h2>Điện thoại Apple</h2>
+  <div class="phone-gallery">
+    <div class="phone-item" data-id="iphone15plus-256" data-name="iPhone 15 Plus 256GB" data-price="21290000" data-img="images/iphone15plus.png">
+      <a href="chitiet_apple1.html"><img src="images/iphone15plus.png" alt="iPhone 15 Plus" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">iPhone 15 Plus 256GB</p>
+        <p class="phone-price">21.290.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_apple1.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm iPhone 15 Plus">+</button>
+      </div>
+    </div>
+
+    <div class="phone-item" data-id="iphone17pro-256" data-name="iPhone 17 Pro 256GB" data-price="34790000" data-img="images/iphone17pro.png">
+      <a href="chitiet_apple2.html"><img src="images/iphone17pro.png" alt="iPhone 17 Pro" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">iPhone 17 Pro 256GB</p>
+        <p class="phone-price">34.790.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_apple2.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm iPhone 17 Pro">+</button>
+      </div>
+    </div>
+
+    <div class="phone-item" data-id="iphone14promax-128" data-name="iPhone 14 Pro Max 128GB" data-price="25590000" data-img="images/iphone14promax.png">
+      <a href="chitiet_apple3.html"><img src="images/iphone14promax.png" alt="iPhone 14 Pro Max" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">iPhone 14 Pro Max 128GB</p>
+        <p class="phone-price">25.590.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_apple3.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm iPhone 14 Pro Max">+</button>
+      </div>
+    </div>
+
+    <div class="phone-item" data-id="iphone16-256" data-name="iPhone 16 256GB" data-price="22790000" data-img="images/iphone16.png">
+      <a href="chitiet_apple4.html"><img src="images/iphone16.png" alt="iPhone 16" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">iPhone 16 256GB</p>
+        <p class="phone-price">22.790.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_apple4.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm iPhone 16">+</button>
+      </div>
+    </div>
+
+    <div class="phone-item" data-id="iphone13promax-1tb" data-name="iPhone 13 Pro Max 1TB" data-price="27990000" data-img="images/iphone13promax.png">
+      <a href="chitiet_apple5.html"><img src="images/iphone13promax.png" alt="iPhone 13 Pro Max" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">iPhone 13 Pro Max 1TB</p>
+        <p class="phone-price">27.990.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_apple5.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm iPhone 13 Pro Max">+</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Samsung -->
+<section class="phone-section" aria-label="Điện thoại Samsung">
+  <h2>Điện thoại Samsung</h2>
+  <div class="phone-gallery">
+    <div class="phone-item" data-id="samsung-zfold7-256" data-name="Samsung Galaxy Z Fold7 5G 12GB 256GB" data-price="41990000" data-img="images/samsungzfold7.png">
+      <a href="chitiet_samsung1.html"><img src="images/samsungzfold7.png" alt="Samsung Z Fold7" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">Samsung Galaxy Z Fold7 5G 12GB 256GB</p>
+        <p class="phone-price">41.990.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_samsung1.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm Samsung Z Fold7">+</button>
+      </div>
+    </div>
+
+    <div class="phone-item" data-id="samsung-s26-256" data-name="Samsung Galaxy S26 Ultra 5G 12GB 256GB" data-price="36990000" data-img="images/samsungs26.png">
+      <a href="chitiet_samsung2.html"><img src="images/samsungs26.png" alt="Samsung S26 Ultra" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">Samsung Galaxy S26 Ultra 5G 12GB 256GB</p>
+        <p class="phone-price">36.990.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_samsung2.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm Samsung S26">+</button>
+      </div>
+    </div>
+
+    <div class="phone-item" data-id="samsung-a57-128" data-name="Samsung Galaxy A57 5G 8GB 128GB" data-price="12490000" data-img="images/samsunga57.png">
+      <a href="chitiet_samsung3.html"><img src="images/samsunga57.png" alt="Samsung A57" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">Samsung Galaxy A57 5G 8GB 128GB</p>
+        <p class="phone-price">12.490.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_samsung3.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm Samsung A57">+</button>
+      </div>
+    </div>
+
+    <div class="phone-item" data-id="samsung-zflip7-256" data-name="Samsung Galaxy Z Flip7 5G 12GB 256GB" data-price="28990000" data-img="images/samsungzflip7.png">
+      <a href="chitiet_samsung4.html"><img src="images/samsungzflip7.png" alt="Samsung Z Flip7" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">Samsung Galaxy Z Flip7 5G 12GB 256GB</p>
+        <p class="phone-price">28.990.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_samsung4.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm Samsung Z Flip7">+</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Xiaomi -->
+<section class="phone-section" aria-label="Điện thoại Xiaomi">
+  <h2>Điện thoại Xiaomi</h2>
+  <div class="phone-gallery">
+    <div class="phone-item" data-id="xiaomi-17ultra-512" data-name="Xiaomi 17 Ultra 5G 16GB 512GB" data-price="39990000" data-img="images/xiaomi17ultra.png">
+      <a href="chitiet_xiaomi1.html"><img src="images/xiaomi17ultra.png" alt="Xiaomi 17 Ultra" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">Xiaomi 17 Ultra 5G 16GB 512GB</p>
+        <p class="phone-price">39.990.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_xiaomi1.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm Xiaomi 17 Ultra">+</button>
+      </div>
+    </div>
+
+    <div class="phone-item" data-id="poco-m8-pro" data-name="Xiaomi Poco M8 Pro" data-price="12490000" data-img="images/xiaomiPocoM8.png">
+      <a href="chitiet_xiaomi2.html"><img src="images/xiaomiPocoM8.png" alt="Xiaomi Poco M8" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">Xiaomi Poco M8 Pro</p>
+        <p class="phone-price">12.490.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_xiaomi2.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <!-- chuyển nút Poco từ onclick cũ sang chuẩn -->
+        <button class="add-small-btn" type="button" aria-label="Thêm Xiaomi Poco M8">+</button>
+      </div>
+    </div>
+
+    <div class="phone-item" data-id="redmi-note15" data-name="Redmi Note 15 5G" data-price="7490000" data-img="images/redminote15.png">
+      <a href="chitiet_xiaomi3.html"><img src="images/redminote15.png" alt="Redmi Note 15" loading="lazy"></a>
+      <div class="info-wrap">
+        <p class="phone-name">Redmi Note 15 5G</p>
+        <p class="phone-price">7.490.000 VND</p>
+      </div>
+      <div class="actions">
+        <a href="chitiet_xiaomi3.html"><button class="buy-btn">Xem chi tiết</button></a>
+        <button class="add-small-btn" type="button" aria-label="Thêm Redmi Note 15">+</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Hỗ trợ khách hàng</h3>
+        <ul>
+          <li><a href="#">Giới thiệu</a></li>
+          <li><a href="#">Liên hệ</a></li>
+          <li><a href="#">Chính sách bán sỉ</a></li>
+          <li><a href="#">Tư vấn mua hàng</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Chính sách bán hàng</h3>
+        <ul>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Chính sách vận chuyển</a></li>
+          <li><a href="#">Chính sách bảo hành</a></li>
+          <li><a href="#">Phương thức thanh toán</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>PhoneShop</h3>
+        <p><strong>Địa chỉ:</strong> 624 Âu Cơ, Phường Bảy Hiền, TP Hồ Chí Minh</p>
+        <p><strong>Điện thoại:</strong> 096.306.000 – 036.343.500</p>
+        <p><strong>Email:</strong> <a href="mailto:info@phoneshop.vn">info@phoneshop.vn</a></p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="20" height="20" loading="lazy"></a>
+          <a href="#" aria-label="Instagram"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" width="20" height="20" loading="lazy"></a>
+          <a href="https://wa.me/8496306000" aria-label="WhatsApp"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20" height="20" loading="lazy"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 PhoneShop. Tất cả quyền được bảo lưu.</p>
+      <p><a href="#">Điều khoản sử dụng</a> | <a href="#">Chính sách bảo mật</a></p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

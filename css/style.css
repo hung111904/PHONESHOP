@@ -1,0 +1,334 @@
+:root{
+  --accent-1:#4facfe;--accent-2:#00f2fe;--card-bg:#fff;--page-bg:#f8fafc;
+  --text:#0b1220;--muted:#6b7280;--danger:#ef4444;--radius:10px;
+  --shadow:0 6px 18px rgba(16,24,40,0.06);
+  --header-h:200px;--footer-h:180px;--main-gap:12px;--card-width:300px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--page-bg);-webkit-font-smoothing:antialiased}
+body{display:flex;flex-direction:column;min-height:100vh}
+
+/* header */
+.site-header{flex:0 0 var(--header-h);height:var(--header-h);background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#fff;padding:12px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between;box-shadow:0 4px 12px rgba(0,0,0,0.08);position:relative;z-index:1000;overflow:visible}
+.header-left{display:flex;align-items:center;gap:12px}
+.site-header .brand{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;flex:0 0 auto;max-width:720px;height:calc(var(--header-h)-8px)}
+.site-header .brand-link{display:inline-block}
+.site-header img.logo-img{display:block;height:170px;max-height:180px;object-fit:contain;margin-top:6px;z-index:2000}
+.site-header .brand-text{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 48px);text-align:center;z-index:1999}
+.site-header .brand-sub{font-size:14px;margin:0;color:rgba(255,255,255,0.95);font-weight:600}
+.site-header .brand-name{display:none!important}
+
+/* auth */
+.auth-container{display:flex;align-items:center;gap:12px;position:relative;min-width:0}
+.cart-icon,.notification-icon{width:28px;height:28px;object-fit:contain;flex:0 0 28px}
+.auth-btn{padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.95);color:var(--text);border:none;font-weight:700;cursor:pointer;white-space:nowrap}
+.avatar-container{display:flex;align-items:center;gap:8px;margin-left:8px;position:relative}
+.avatar-img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.12);background:#fff}
+.logout-menu{position:absolute;top:calc(100% + 8px);right:0;display:none;background:var(--card-bg);color:var(--text);border:1px solid rgba(0,0,0,0.06);box-shadow:0 8px 24px rgba(16,24,40,0.08);padding:8px 10px;border-radius:8px;z-index:1200;white-space:nowrap}
+.avatar-container:hover .logout-menu,.avatar-container.open .logout-menu{display:block}
+
+/* main */
+.main-content{flex:1 0 auto;display:flex;flex-direction:column;gap:var(--main-gap);align-items:center;padding:12px 20px;padding-bottom:calc(var(--footer-h) + 12px);overflow:visible;background:transparent}
+
+/* slideshow - integrated and robust */
+.slideshow-container{
+  width:100%;
+  max-width:500px;
+  height:320px;
+  border-radius:12px;
+  overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02));
+  position:relative;
+  flex:0 0 auto;
+  display:block;
+  box-sizing:border-box;
+}
+
+/* ensure slide wrappers are full-size and not absolutely positioned */
+.slideshow-container .slide,
+.slideshow-container .swiper-slide,
+.slideshow-container .slick-slide,
+.slideshow-container .glide__slide,
+.slideshow-container .carousel-item {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  inset: auto !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* force images to fit inside frame and prevent overflow */
+.slideshow-container img,
+.slideshow-container .slide img,
+.slideshow-container .swiper-slide img,
+.slideshow-container .slick-slide img,
+.slideshow-container .glide__slide img,
+.slideshow-container .carousel-item img {
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important; /* use contain to avoid cropping; change to cover if you prefer fill */
+  object-position:center !important;
+  position:relative !important;
+  left:auto !important;
+  top:auto !important;
+  transform:none !important;
+  inset:auto !important;
+  border-radius:inherit !important;
+  box-sizing:border-box !important;
+}
+
+/* optional class to show whole image without cropping */
+.slideshow-container img.contain,
+.slideshow-container .slide.contain{
+  object-fit:contain !important;
+  background-color:var(--page-bg) !important;
+}
+
+/* guard against inline style attributes from JS libraries */
+.slideshow-container img[style],
+.slideshow-container .slide img[style]{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  position:relative !important;
+}
+
+/* ensure non-active slides are hidden and active slide is visible */
+.slideshow-container .slide { display: none; }
+.slideshow-container .slide.active { display: block; }
+
+/* hide default nav if present */
+.prev,.next{display:none!important}
+
+.phone-section{width:100%;max-width:1200px;margin:0 auto;padding-top:12px;margin-bottom:8px;box-sizing:border-box}
+.phone-section h2{margin:0 0 6px 0;font-size:18px;color:var(--text);text-align:left}
+.phone-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--card-width),1fr));gap:16px;align-items:start;justify-items:center;width:100%;padding:12px 6px 8px}
+
+/* card */
+.phone-item{display:flex;flex-direction:column;gap:1px;width:100%;max-width:var(--card-width);background:var(--card-bg);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow);transition:transform .12s ease,box-shadow .12s ease;overflow:hidden;position:relative}
+.phone-item:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(16,24,40,0.12)}
+.phone-item>a,.phone-item .thumb{display:block;width:100%;height:260px;overflow:hidden;border-radius:calc(var(--radius)-2px);margin-bottom:0}
+.phone-item img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:inherit;background:linear-gradient(180deg,rgba(0,0,0,0.02),rgba(255,255,255,0.02))}
+
+.info-wrap{display:flex;flex-direction:column;gap:4px;padding:4px 4px 0 4px;min-width:0;align-items:center}
+.phone-name{font-size:12px;font-weight:700;margin:0;color:var(--text);text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.price-row{display:flex;gap:8px;align-items:baseline;justify-content:center;flex-wrap:wrap;min-width:0;margin:0}
+.phone-price{color:var(--danger);font-weight:800;font-size:14px;margin:0;white-space:nowrap}
+.price-old{color:var(--muted);font-size:12px;text-decoration:line-through}
+.phone-desc{font-size:12px;color:var(--muted);text-align:center;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+.actions{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:6px}
+.buy-btn{background:linear-gradient(90deg,#06b6d4,#3b82f6);color:#fff;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-weight:700;font-size:13px;white-space:nowrap}
+
+.phone-item.small,.phone-item.compact{max-width:var(--card-width)}
+.phone-item.small>a img,.phone-item.compact>a img{aspect-ratio:4/3;object-fit:contain}
+
+/* =========================
+   TAGS / CHIPS (integrated fix)
+   =========================
+   Starting from the provided original code, these rules replace previous tag rules.
+   They are intentionally aggressive (high specificity + !important) to override
+   inline styles or library-injected positioning that caused chips to escape.
+*/
+
+/* Container: reserve vertical space and prevent transforms/absolute positioning */
+.phone-gallery .phone-item .tags,
+.phone-gallery .phone-item .product-tags,
+.phone-gallery .phone-item .item-tags,
+.phone-gallery .phone-item .tags-wrapper {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  padding: 6px 12px 0 12px !important;
+  margin: 0 !important;  
+  box-sizing: border-box !important;
+  position: relative !important;
+  transform: none !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  min-height: 36px !important; /* reserve vertical space so chips cannot escape */
+  overflow: hidden !important;  /* clip accidental overflow */
+  line-height: 1 !important;
+  z-index: 1 !important;
+}
+
+/* Chips: force inline-flex, prevent absolute/floating, keep baseline alignment */
+.phone-gallery .phone-item .tags > * ,
+.phone-gallery .phone-item .product-tags > * ,
+.phone-gallery .phone-item .item-tags > * ,
+.phone-gallery .phone-item .tags-wrapper > * {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px 8px !important;
+  border-radius: 999px !important;
+  background: rgba(59,130,246,0.08) !important;
+  color: #0369a1 !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  position: relative !important;
+  float: none !important;
+  transform: none !important;
+  left: auto !important;
+  right: auto !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  vertical-align: baseline !important;
+  z-index: 2 !important;
+}
+
+/* Defensive: override inline/absolute offsets on nested elements */
+.phone-gallery .phone-item .tags * {
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: none !important;
+  inset: auto !important;
+  float: none !important;
+}
+
+/* If a library injects inline style attributes on containers or chips, reset them */
+.phone-gallery .phone-item .tags[style],
+.phone-gallery .phone-item .tags-wrapper[style],
+.phone-gallery .phone-item .product-tags[style],
+.phone-gallery .phone-item .item-tags[style],
+.phone-gallery .phone-item .tags *[style] {
+  transform: none !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  position: relative !important;
+  min-height: 36px !important;
+  overflow: hidden !important;
+  inset: auto !important;
+  float: none !important;
+}
+
+/* Samsung visual tweak (keeps alignment) */
+.phone-gallery .phone-item[data-brand="samsung"] .tags > * {
+  background: rgba(2,132,199,0.08) !important;
+  color: #0369a1 !important;
+}
+
+/* final safety: ensure card clips overflow so chips never visually escape */
+.phone-gallery .phone-item { overflow: hidden !important; }
+
+/* contact / footer */
+.site-footer{flex:0 0 var(--footer-h);height:var(--footer-h);background:var(--page-bg);padding:12px 20px;box-shadow:0 -2px 8px rgba(0,0,0,0.04);position:relative;z-index:10;overflow:visible}
+.footer-container{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;max-width:1200px;margin:0 auto;padding:0 12px;box-sizing:border-box}
+.footer-column{flex:1;min-width:180px;display:flex;flex-direction:column;gap:6px}
+.footer-bottom{margin-top:8px;text-align:center;opacity:0.9;font-size:13px}
+.social-icons{display:flex;gap:8px;margin-top:8px}
+.social-icons img{height:24px;width:auto;display:block}
+
+/* contact layout */
+.contact-info,
+.contact-row,
+.footer-contact,
+.contact-list,
+.contact-details {
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+  width:100%;
+  box-sizing:border-box;
+  padding:8px 12px;
+  margin:0;
+  position:relative;
+}
+
+/* normalize contact children */
+.contact-info > * ,
+.contact-row > * ,
+.footer-contact > * ,
+.contact-list > * ,
+.contact-details > * {
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  justify-content:flex-start !important;
+  padding:4px 6px !important;
+  margin:0 !important;
+  box-sizing:border-box !important;
+  position:static !important;
+  float:none !important;
+  transform:none !important;
+  left:auto !important;
+  right:auto !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  overflow:visible !important;
+  white-space:nowrap !important;
+}
+
+/* ensure gallery alignment consistent */
+.phone-gallery { align-items:start; justify-items:center; }
+
+/* responsive */
+@media (max-width:1000px){
+  :root{--card-width:320px}
+  .phone-gallery{gap:12px}
+  .phone-item{max-width:100%;padding:10px}
+  .phone-item>a{height:220px}
+  .site-header{height:160px}
+  .site-header .brand{max-width:520px;height:calc(var(--header-h)-8px)}
+  .site-header img.logo-img{height:120px;max-height:140px}
+  .site-header .brand-sub{font-size:13px}
+  .footer-column{min-width:200px}
+}
+@media (max-width:700px){
+  :root{--card-width:100%;--header-h:110px;--footer-h:220px}
+  .site-header{height:var(--header-h);padding:10px 12px}
+  .site-footer{height:var(--footer-h)}
+  .slideshow-container{height:40vh;flex:0 0 40vh}
+  .phone-gallery{grid-template-columns:1fr;gap:10px;padding:8px;justify-items:stretch}
+  .phone-item{padding:10px;gap:8px}
+  .phone-item>a{height:160px}
+  .phone-name{font-size:14px}
+  .phone-price{font-size:13px}
+  .buy-btn{padding:8px 10px;font-size:14px}
+  .avatar-img{width:32px;height:32px}
+  .cart-icon,.notification-icon{width:24px;height:24px}
+  .auth-btn{padding:6px 8px;font-size:13px}
+  .site-header .brand{max-width:260px;height:calc(var(--header-h)-6px)}
+  .site-header img.logo-img{height:56px;max-height:64px;margin-top:4px}
+  .site-header .brand-sub{font-size:11px}
+  .contact-info,
+  .contact-row,
+  .footer-contact { justify-content:flex-start; padding:8px; gap:6px; }
+  .contact-text { font-size:13px; white-space:normal; overflow:visible; text-overflow:unset; }
+}
+
+/* accessibility focus */
+.phone-item:focus-within{outline:2px solid rgba(59,130,246,0.18);box-shadow:0 8px 24px rgba(59,130,246,0.06)}
+a:focus,button:focus{outline:2px solid rgba(59,130,246,0.22);outline-offset:2px}
+
+.phone-item .actions{position:relative!important;right:auto!important;left:auto!important;top:auto!important}
+
+.hidden{display:none!important}
