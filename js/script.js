@@ -318,6 +318,60 @@
         if(href) window.location.href = href;
       }, false);
 
+
+      // mobile: tap to advance + swipe support (only when width <= 700px)
+(function(){
+  const BREAK = 700;
+  let touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+  const TAP_MAX_MOVE = 10, TAP_MAX_TIME = 300, SWIPE_MIN_MOVE = 40;
+
+  function isMobile(){ return window.innerWidth <= BREAK; }
+
+  function onTouchStart(e){
+    if(!isMobile()) return;
+    const t = e.touches ? e.touches[0] : e;
+    touchStartX = t.clientX; touchStartY = t.clientY; touchStartTime = Date.now();
+    paused = true; // tạm dừng auto-rotate khi chạm
+  }
+
+  function onTouchEnd(e){
+    if(!isMobile()) return;
+    const t = (e.changedTouches && e.changedTouches[0]) || e;
+    const dx = t.clientX - touchStartX;
+    const dy = t.clientY - touchStartY;
+    const dt = Date.now() - touchStartTime;
+
+    // ignore mostly-vertical moves
+    if(Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > SWIPE_MIN_MOVE){
+      paused = false;
+      return;
+    }
+
+    // swipe
+    if(Math.abs(dx) >= SWIPE_MIN_MOVE && Math.abs(dx) > Math.abs(dy)){
+      if(dx < 0) next(); else prev();
+      paused = false;
+      return;
+    }
+
+    // tap
+    if(Math.abs(dx) <= TAP_MAX_MOVE && Math.abs(dy) <= TAP_MAX_MOVE && dt <= TAP_MAX_TIME){
+      const target = e.target || e.srcElement;
+      const a = target.closest && target.closest('a');
+      if(a && a.href){ paused = false; return; } // follow link
+      next();
+      paused = false;
+    } else {
+      paused = false;
+    }
+  }
+
+  container.addEventListener('touchstart', onTouchStart, {passive:true});
+  container.addEventListener('touchend', onTouchEnd, {passive:true});
+  container.addEventListener('mousedown', function(e){ if(isMobile()) onTouchStart(e); });
+  container.addEventListener('mouseup', function(e){ if(isMobile()) onTouchEnd(e); });
+})();
+
       // init
       show(current);
       start();

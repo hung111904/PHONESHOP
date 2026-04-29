@@ -332,3 +332,53 @@ a:focus,button:focus{outline:2px solid rgba(59,130,246,0.22);outline-offset:2px}
 .phone-item .actions{position:relative!important;right:auto!important;left:auto!important;top:auto!important}
 
 .hidden{display:none!important}
+
+/* mobile */
+@media (max-width:700px) {
+  .slideshow-container {
+    display: block !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 8px 0 !important;
+    border-radius: 10px;
+  }
+
+  .slideshow-container .slide,
+  .slideshow-container .swiper-slide,
+  .slideshow-container .slick-slide,
+  .slideshow-container .glide__slide,
+  .slideshow-container .carousel-item {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 8px 0 !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    inset: auto !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .slideshow-container .slide img,
+  .slideshow-container img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    border-radius: 8px !important;
+  }
+
+  .slideshow-container .prev,
+  .slideshow-container .next {
+    display: none !important;
+  }
+
+  .slideshow-container .slide a,
+  .slideshow-container .slide button {
+    display: block;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
